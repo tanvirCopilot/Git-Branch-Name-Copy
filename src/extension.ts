@@ -6,12 +6,12 @@ let statusBarItem: vscode.StatusBarItem;
 export function activate(context: vscode.ExtensionContext) {
     // Create status bar item with copy icon
     statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 100);
-    statusBarItem.command = 'git-branch-copy.copyBranchName';
+    statusBarItem.command = 'git-branch-name-copy.copyBranchName';
     statusBarItem.tooltip = 'Click to copy branch name';
     context.subscriptions.push(statusBarItem);
 
     // Register the copy command
-    const copyCommand = vscode.commands.registerCommand('git-branch-copy.copyBranchName', async () => {
+    const copyCommand = vscode.commands.registerCommand('git-branch-name-copy.copyBranchName', async () => {
         const branchName = await getBranchName();
         if (branchName) {
             await vscode.env.clipboard.writeText(branchName);
