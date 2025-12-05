@@ -55,7 +55,8 @@ async function getBranchName(): Promise<string | null> {
 async function updateStatusBar() {
     const branchName = await getBranchName();
     if (branchName) {
-        statusBarItem.text = `$(copy) ${branchName}`;
+        statusBarItem.text = `$(copy)`;
+        statusBarItem.tooltip = `${branchName} — Click to copy branch name`;
         statusBarItem.show();
     } else {
         statusBarItem.hide();
